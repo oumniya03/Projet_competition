@@ -35,9 +35,9 @@ PyTorch • Transformers (CLIP) • Pandas • scikit-learn
 ## 👤 Author
 
 **Oumniya Moutaouakil**
--Master's Student in Advanced Machine Learning & Multimedia Intelligence.
+- Master's Student in Advanced Machine Learning & Multimedia Intelligence.
 - GitHub: [@oumniya03](https://github.com/oumniya03)
-- Project: [Projet-rag](https://github.com/oumniya03/Projet-rag)
+- Project: [Projet-competition](https://github.com/oumniya03/Projet_competition.git)
 
 
 
