@@ -4,20 +4,36 @@
 Ce dépôt contient la solution pour la **Compétition de Prédiction du Taux de Clics Multimodaux (CTR)** basée sur le jeu de données 
 [MicroLens-1M](https://recsys.westlake.edu.cn/MicroLens_1M_MMCTR/)
 
-L'objectif de ce projet est de prédire la probabilité qu'un utilisateur clique sur un élément spécifique (vidéo/article) en se basant sur :
+**Objectif:** Prédire la probabilité qu'un utilisateur clique sur un élément spécifique (vidéo/article) en se basant sur :
 - **Historique Utilisateur :**  Comportement séquentiel (clics passés).
 - **Contenu de l'Élément :** Caractéristiques multimodales (Titres Textuels + Couvertures Images).
 
-Mon approche repose sur une **architecture d'Optimisation en Cascade.** Contrairement à une méthode 'end-to-end' souvent trop lourde, j’ai séparé l'extraction de connaissances (Task 1) de la modélisation comportementale (Task 2). Cette stratégie m’a permis d'utiliser des modèles de pointe comme CLIP tout en gardant un modèle de prédiction agile.
+## 🎯 Approche Stratégique
+Mon approche repose sur une **architecture d'Optimisation en Cascade.** 
+Contrairement à une méthode 'end-to-end' souvent trop lourde, j’ai séparé l'extraction de connaissances (Task 1) de la modélisation comportementale (Task 2). Cette stratégie m’a permis d'utiliser des modèles de pointe comme CLIP tout en gardant un modèle de prédiction agile.
 
 - **Task 1** : Extraction d'embeddings multimodaux avec CLIP
 - **Task 2** : Modèle CTR avec architecture Attention + DNN
 - **Meilleur AUC** : 0.7752 (validation)
 
 ## 🏗️ Architecture
-1. **CLIP fine-tuning** : Fusion texte (titre) + image (couverture)
-2. **Réduction PCA** : 1024D → 128D
-3. **Modèle CTR** : User/Item embeddings + Multi-head Attention + Deep NN
+**Pipeline en 3 Étapes**
+
+### 1.Extraction Multimodale (CLIP)
+
+- **Modèle :** openai/clip-vit-base-patch32
+- **Fusion :** Embeddings Texte (512D) + Image (512D) = 1024D
+
+### 2.Réduction Dimensionnelle (PCA)
+
+- **Compression :** 1024D → 128D
+- **Normalisation L2** pour stabilité
+
+### 3.Modèle CTR (Attention + DNN)
+- **User/Item** Embeddings (64D)
+- **Multi-head Attention** sur historique
+- **Deep Neural Network** [512→256→128→1]
+
 <img width="1261" height="1364" alt="diagram-export-20-12-2025-12_45_52" src="https://github.com/user-attachments/assets/ca8ea7d4-4550-460c-906a-15632be4201f" />
 
 ## 📦 Installation
