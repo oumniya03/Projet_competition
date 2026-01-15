@@ -1,7 +1,8 @@
-#  Prédiction CTR Multimodale sur MicroLens-1M 
+#  🚀 Prédiction CTR Multimodale sur MicroLens-1M 
 ## 📌 Aperçu du Projet
 
-Ce dépôt contient la solution pour la **Compétition de Prédiction du Taux de Clics Multimodaux (CTR)** basée sur le jeu de données **MicroLens-1M**.
+Ce dépôt contient la solution pour la **Compétition de Prédiction du Taux de Clics Multimodaux (CTR)** basée sur le jeu de données 
+[MicroLens-1M](https://recsys.westlake.edu.cn/MicroLens_1M_MMCTR/)
 
 L'objectif de ce projet est de prédire la probabilité qu'un utilisateur clique sur un élément spécifique (vidéo/article) en se basant sur :
 - **Historique Utilisateur :**  Comportement séquentiel (clics passés).
@@ -19,6 +20,20 @@ Mon approche repose sur une **architecture d'Optimisation en Cascade.** Contrair
 3. **Modèle CTR** : User/Item embeddings + Multi-head Attention + Deep NN
 <img width="1261" height="1364" alt="diagram-export-20-12-2025-12_45_52" src="https://github.com/user-attachments/assets/ca8ea7d4-4550-460c-906a-15632be4201f" />
 
+## 📦 Installation
+```bash
+# Cloner le dépôt
+git clone https://github.com/oumniya03/Projet_competition.git
+cd Projet_competition
+
+# Installer les dépendances
+pip install torch torchvision transformers pandas numpy scikit-learn tqdm
+```
+
+**Prérequis** :
+- Python 3.11+
+- CUDA 11.8+ (recommandé pour GPU)
+  
 ## 🚀 Utilisation
 ```bash
 # Exécuter le notebook complet
@@ -30,7 +45,10 @@ jupyter notebook competition.ipynb
 - Dataset : 3.6M interactions train, 91K items
 
 ## 🛠️ Stack Technique
-PyTorch • Transformers (CLIP) • Pandas • scikit-learn
+- Deep Learning : PyTorch 2.0, Transformers (CLIP)
+- Data Processing : Pandas, NumPy
+- ML Tools : scikit-learn (PCA), tqdm
+- Compute : NVIDIA Tesla T4 (Kaggle)
 
 ## 👤 Author
 
